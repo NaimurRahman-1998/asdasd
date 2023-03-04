@@ -13,8 +13,8 @@ function displayData(array, dataLimit) {
     const card_container = document.getElementById('card-container');
     card_container.innerHTML = ``
     const button = document.getElementById('button')
-    if (dataLimit && array.length > 3) {
-        array = array.slice(0, 3)
+    if (dataLimit && array.length > 6) {
+        array = array.slice(0, 6)
         button.classList.remove('hidden')
     } else {
         button.classList.add('hidden')
@@ -39,7 +39,7 @@ function displayData(array, dataLimit) {
                 <div class="border-t-2 border-slate-300 w-full flex justify-between">
                     <div class="mt-4">
                         <h2 class="card-title font-bold text-2xl">${obj.name}</h2>
-                        <p class="text-sm"><i class="mr-1 fa-regular fa-calendar"></i>${obj.published_in}</p>
+                        <p class="text-sm"><i class="mt-4 mr-1 fa-regular fa-calendar"></i>${obj.published_in}</p>
                     </div>
                     <div>
                         <label onclick="showModal('${obj.id}')" for="my-modal-3" class="btn btn-ghost mt-4"><i class="fa-solid fa-greater-than"></i></label>
@@ -80,11 +80,11 @@ function showModalData(obj) {
     console.log(obj)
 
     document.getElementById('title').innerText = obj.description
-
+    console.log(obj['pricing'])
     const pricing_container = document.getElementById('pricing-container')
     pricing_container.innerHTML = `
     <div class=" px-4 bg-slate-100 h-20 w-24 text-sm text-center font-bold text-green-600">
-        <span>${obj.pricing[0].price ? obj.pricing[0].price : '00'}</span> <span>${obj.pricing[0].plan}</span>
+        <span>${obj['pricing'] ? obj.pricing[0].price : 'free of Cost'}</span> <span>${obj.pricing[0].plan}</span>
     </div>
     <div class=" px-4 bg-slate-100 h-20 w-24 text-sm text-center font-bold text-amber-600">
         <span>${obj.pricing[1].price}</span> <span>${obj.pricing[1].plan}</span>
@@ -116,7 +116,7 @@ function showModalData(obj) {
     accuracy = accuracy * 100;
     right_card.innerHTML = `
     <div class="card card-compact w-96 h-full bg-base-100 shadow-xl">
-        <figure class=" py-1"><img class="h-[100%] w-full rounded-lg" src="${obj.image_link[0]}" alt="Shoes" /></figure>
+        <figure class=" py-1"><img class="h-[100%] w-full rounded-lg" src="${obj.image_link[0] || obj.image_link[0]}" alt="Shoes" /></figure>
         <button class="btn btn-error text-white absolute right-2 top-3"> ${accuracy}% accuracy</button>
         <div class="card-body">
             <h2 id="right-title" class="text-2xl font-bold text-center">${obj.input_output_examples[0].input}</h2>
@@ -129,4 +129,4 @@ function showModalData(obj) {
     
     `
 }
-loadData(3)
+loadData(6)
