@@ -17,7 +17,7 @@
     </header>
 
     <main>
-        <section id="card-container" class="mx-16 grid grid-cols-3 ">
+        <section id="card-container" class="w-full grid lg:grid-cols-3 ">
 
         </section>
 
@@ -27,71 +27,52 @@
         </section>
 
         <section>
-            <!-- Put this part before </body> tag -->
+            
             <input type="checkbox" id="my-modal-3" class="modal-toggle" />
             <div class="modal">
-                <div class="modal-box w-[110%] h-[72%] max-w-5xl">
+                <div class="modal-box w-[100%] h-[100%] flex justify-center items-center max-w-5xl">
                     <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <div class="flex justify-center content-center gap-8">
+                    <div class=" grid lg:flex lg:justify-center lg:content-center lg:mt-0 gap-8">
                         <div>
-                            <div class="card w-96 shadow-xl bg-red-50 border-2 border-red-400">
+                            <div class="card w-96 h-[100%] h-full  shadow-xl bg-red-50 border-2 border-red-400">
                                 <div class="card-body">
-                                    <h2 id="title" class="text-lg font-bold"></h2>
-                                    <div class="grid  grid-cols-3 mt-2">
-                                        <div
-                                            class=" px-4 bg-slate-100 h-20 w-24 text-sm text-center font-bold text-green-600">
-                                            <span id="price-1">$10/ month</span> <span id="plan1">Basic</span>
-                                        </div>
-                                        <div
-                                            class=" px-4 bg-slate-100 h-20 w-24 text-sm text-center font-bold text-amber-600">
-                                            <span id="price-2">$10/ month</span> <span id="plan2">Basic</span>
-                                        </div>
-                                        <div
-                                            class=" px-4 bg-slate-100 h-20 w-24 text-sm text-center font-bold text-rose-600">
-                                            <span id="price-3">$10/ month</span> <span id="plan3">Basic</span>
-                                        </div>
-
+                                    <h2 id="title" class="text-xl font-bold"></h2>
+                                    <div id="pricing-container" class="grid  grid-cols-3 mt-4">
+                                        
                                     </div>
 
                                     <div class="flex justify-between mt-3">
                                         <div>
-                                            <h1 id="feature" class="text-xl font-bold">Features</h1>
-                                            <ul class="list-disc pl-6 mt-3 text-sm">
-                                                <li id="f-1">one</li>
-                                                <li id="f-2">two</li>
-                                                <li id="f-3">three</li>
+                                            <h1  class="text-xl font-bold">Features</h1>
+                                            <ul id="feature" class="list-disc pl-6 mt-3 text-sm">
+
                                             </ul>
                                         </div>
                                         <div>
-                                            <h1 id="intreg" class="text-xl font-bold">Integration</h1>
-                                            <ul class="list-disc pl-6 mt-3 text-sm">
-                                                <li id="i-1">one</li>
-                                                <li id="i-2">two</li>
-                                                <li id="i-3">three</li>
+                                            <h1 class="text-xl font-bold">Integration</h1>
+                                            <ul id="integ" class="list-disc pl-6 mt-3 text-sm">
+                                                
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                                <figure class="px-6 "><img id="modalpic" class="h-[50%] rounded-lg" src=""
-                                        alt="Shoes" />
-                                </figure>
-                                <div class="card-body">
-                                    <h2 id="right-title" class="text-2xl font-bold text-center">Shoes!</h2>
-                                    <p id="para" class="text-center">If a dog chews shoes whose shoes does he choose?
-                                    </p>
-                                    <div class="">
-                                        <!-- <button class="btn btn-primary -translate-y-80 translate-x-56">Buy Now</button> -->
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="right-card">
+                        
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id="spinner" class="hidden">
+            <div class="flex items-center justify-center space-x-2">
+                <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-primary motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    role="status">
+                    <span
+                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                </div>
         </section>
     </main>
 
